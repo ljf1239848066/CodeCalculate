@@ -1,0 +1,488 @@
+所得税法第三方
+
+所得税法第三方
+
+所得税法第三方
+
+所得税法第三方
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+
+namespace 项目代码统计
+{
+    public partial class Form1 : Form
+    {
+        private List<string> pathList = new List<string>();
+        private List<int> paraCount = new List<int>();
+        private List<int> wordCount = new List<int>();
+        private int totalCount = 0;
+        private string[] strExtension = new string[] { ".cs", ".java", ".cpp", ".aspx", ".xml", ".sql" };
+        public void calculate(string path)
+        {
+            try
+            {
+                string[] strDirectory = Directory.GetDirectories(path);//获取目录
+                string[] strFile = Directory.GetFiles(path);//获取文件名
+                foreach (string directory in strDirectory)
+                {
+                    calculate(directory);
+                }
+                foreach (string file in strFile)
+                {
+                    try
+                    {
+                        FileInfo fileinfo = new FileInfo(file);
+                        string fileextension = fileinfo.Extension;
+                        if (isCalculate(fileextension))
+                        {
+                            pathList.Add(fileinfo.FullName);
+                            lbpathList.Items.Add(fileinfo.FullName);
+                            StreamReader sr = new StreamReader(file);
+                            string fileText = sr.ReadToEnd();
+                            int fileLength = fileText.Length;
+                            char ch;
+                            int currentCount = 0;
+                            for (int i = 0; i < fileLength; i++)
+                            {
+                                ch = fileText[i];
+                                if ((int)ch == 10)
+                                {
+                                    totalCount++;
+                                    currentCount++;
+                                }
+                            }
+                            paraCount.Add(currentCount);
+                            lbcountList.Items.Add(currentCount);
+                        }
+                    }
+                    catch (System.Exception ex)
+                    {
+
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        public Boolean isCalculate(string extention)
+        {
+            int i = 0;
+            int count = strExtension.Length;
+            for (i = 0; i < count; i++)
+            {
+                if (extention == strExtension[i]) return true;
+                else continue;
+            }
+            return false;
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            lbpathList.Items.Clear();
+            lbcountList.Items.Clear();
+            totalCount=0;
+            string strPath = System.Environment.CurrentDirectory;
+            calculate(strPath);
+            int count = pathList.Count;
+            //f所得税法第三方
+
+所得税法第三方
+
+所得税法第三方
+
+所得税法第三方
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+
+namespace 项目代码统计
+{
+    public partial class Form1 : Form
+    {
+        private List<string> pathList = new List<string>();
+        private List<int> paraCount = new List<int>();
+        private List<int> wordCount = new List<int>();
+        private int totalCount = 0;
+        private string[] strExtension = new string[] { ".cs", ".java", ".cpp", ".aspx", ".xml", ".sql" };
+        public void calculate(string path)
+        {
+            try
+            {
+                string[] strDirectory = Directory.GetDirectories(path);//获取目录
+                string[] strFile = Directory.GetFiles(path);//获取文件名
+                foreach (string directory in strDirectory)
+                {
+                    calculate(directory);
+                }
+                foreach (string file in strFile)
+                {
+                    try
+                    {
+                        FileInfo fileinfo = new FileInfo(file);
+                        string fileextension = fileinfo.Extension;
+                        if (isCalculate(fileextension))
+                        {
+                            pathList.Add(fileinfo.FullName);
+                            lbpathList.Items.Add(fileinfo.FullName);
+                            StreamReader sr = new StreamReader(file);
+                            string fileText = sr.ReadToEnd();
+                            int fileLength = fileText.Length;
+                            char ch;
+                            int currentCount = 0;
+                            for (int i = 0; i < fileLength; i++)
+                            {
+                                ch = fileText[i];
+                                if ((int)ch == 10)
+                                {
+                                    totalCount++;
+                                    currentCount++;
+                                }
+                            }
+                            paraCount.Add(currentCount);
+                            lbcountList.Items.Add(currentCount);
+                        }
+                    }
+                    catch (System.Exception ex)
+                    {
+
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        public Boolean isCalculate(string extention)
+        {
+            int i = 0;
+            int count = strExtension.Length;
+            for (i = 0; i < count; i++)
+            {
+                if (extention == strExtension[i]) return true;
+                else continue;
+            }
+            return false;
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            lbpathList.Items.Clear();
+            lbcountList.Items.Clear();
+            totalCount=0;
+            string strPath = System.Environment.CurrentDirectory;
+            calculate(strPath);
+            int count = pathList.Count;
+            //for (int i = 0; i < count; i++)
+            //{
+            //    //tbpathList.Text += pathList.ElementAt(i);
+            //}
+            tbTotalCount.Text = totalCount + "";
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+    }所得税法第三方
+
+所得税法第三方
+
+所得税法第三方
+
+所得税法第三方
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+
+namespace 项目代码统计
+{
+    public partial class Form1 : Form
+    {
+        private List<string> pathList = new List<string>();
+        private List<int> paraCount = new List<int>();
+        private List<int> wordCount = new List<int>();
+        private int totalCount = 0;
+        private string[] strExtension = new string[] { ".cs", ".java", ".cpp", ".aspx", ".xml", ".sql" };
+        public void calculate(string path)
+        {
+            try
+            {
+                string[] strDirectory = Directory.GetDirectories(path);//获取目录
+                string[] strFile = Directory.GetFiles(path);//获取文件名
+                foreach (string directory in strDirectory)
+                {
+                    calculate(directory);
+                }
+                foreach (string file in strFile)
+                {
+                    try
+                    {
+                        FileInfo fileinfo = new FileInfo(file);
+                        string fileextension = fileinfo.Extension;
+                        if (isCalculate(fileextension))
+                        {
+                            pathList.Add(fileinfo.FullName);
+                            lbpathList.Items.Add(fileinfo.FullName);
+                            StreamReader sr = new StreamReader(file);
+                            string fileText = sr.ReadToEnd();
+                            int fileLength = fileText.Length;
+                            char ch;
+                            int currentCount = 0;
+                            for (int i = 0; i < fileLength; i++)
+                            {
+                                ch = fileText[i];
+                                if ((int)ch == 10)
+                                {
+                                    totalCount++;
+                                    currentCount++;
+                                }
+                            }
+                            paraCount.Add(currentCount);
+                            lbcountList.Items.Add(currentCount);
+                        }
+                    }
+                    catch (System.Exception ex)
+                    {
+
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        public Boolean isCalculate(string extention)
+        {
+            int i = 0;
+            int count = strExtension.Length;
+            for (i = 0; i < count; i++)
+            {
+                if (extention == strExtension[i]) return true;
+                else continue;
+            }
+            return false;
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            lbpathList.Items.Clear();
+            lbcountList.Items.Clear();
+            totalCount=0;
+            string strPath = System.Environment.CurrentDirectory;
+            calculate(strPath);
+            int count = pathList.Count;
+            //f所得税法第三方
+
+所得税法第三方
+
+所得税法第三方
+
+所得税法第三方
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.IO;
+
+namespace 项目代码统计
+{
+    public partial class Form1 : Form
+    {
+        private List<string> pathList = new List<string>();
+        private List<int> paraCount = new List<int>();
+        private List<int> wordCount = new List<int>();
+        private int totalCount = 0;
+        private string[] strExtension = new string[] { ".cs", ".java", ".cpp", ".aspx", ".xml", ".sql" };
+        public void calculate(string path)
+        {
+            try
+            {
+                string[] strDirectory = Directory.GetDirectories(path);//获取目录
+                string[] strFile = Directory.GetFiles(path);//获取文件名
+                foreach (string directory in strDirectory)
+                {
+                    calculate(directory);
+                }
+                foreach (string file in strFile)
+                {
+                    try
+                    {
+                        FileInfo fileinfo = new FileInfo(file);
+                        string fileextension = fileinfo.Extension;
+                        if (isCalculate(fileextension))
+                        {
+                            pathList.Add(fileinfo.FullName);
+                            lbpathList.Items.Add(fileinfo.FullName);
+                            StreamReader sr = new StreamReader(file);
+                            string fileText = sr.ReadToEnd();
+                            int fileLength = fileText.Length;
+                            char ch;
+                            int currentCount = 0;
+                            for (int i = 0; i < fileLength; i++)
+                            {
+                                ch = fileText[i];
+                                if ((int)ch == 10)
+                                {
+                                    totalCount++;
+                                    currentCount++;
+                                }
+                            }
+                            paraCount.Add(currentCount);
+                            lbcountList.Items.Add(currentCount);
+                        }
+                    }
+                    catch (System.Exception ex)
+                    {
+
+                    }
+                }
+            }
+            catch (System.Exception ex)
+            {
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        public Boolean isCalculate(string extention)
+        {
+            int i = 0;
+            int count = strExtension.Length;
+            for (i = 0; i < count; i++)
+            {
+                if (extention == strExtension[i]) return true;
+                else continue;
+            }
+            return false;
+        }
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            lbpathList.Items.Clear();
+            lbcountList.Items.Clear();
+            totalCount=0;
+            string strPath = System.Environment.CurrentDirectory;
+            calculate(strPath);
+            int count = pathList.Count;
+            //for (int i = 0; i < count; i++)
+            //{
+            //    //tbpathList.Text += pathList.ElementAt(i);
+            //}
+            tbTotalCount.Text = totalCount + "";
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+or (int i = 0; i < count; i++)
+            //{
+            //    //tbpathList.Text += pathList.ElementAt(i);
+            //}
+            tbTotalCount.Text = totalCount + "";
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+}
+or (int i = 0; i < count; i++)
+            //{
+            //    //tbpathList.Text += pathList.ElementAt(i);
+            //}
+            tbTotalCount.Text = totalCount + "";
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
